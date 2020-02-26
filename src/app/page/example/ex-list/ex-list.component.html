@@ -1,0 +1,253 @@
+<section class="container-fluid">
+  
+  <article class="article">
+
+      <div class="row" >
+        <div class="col-6" >
+          <h2 class="article-title">Articles
+            <span class=" d-none d-sm-block" >
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:;">Article Management</a></li>
+                <li class="breadcrumb-item active">Articles</li>
+              </ul>
+            </span>
+          </h2>
+        </div>
+        <div class="col-6 mt-3" >
+          <a [routerLink]="['/app/articles/create']" mat-raised-button color="primary" class="btn btn-w-md pull-right"><i class="material-icons">add_circle_outline</i> New article</a><div class="divider divider-sm"></div>
+        </div>
+      </div>
+
+      <div class="box box-default table-box table-responsive mdl-shadow--2dp">
+        <div class="box-header box-dark"><i class="material-icons">search</i> Search filter</div>
+        <div class="box-body">
+          <form role="form" autocomplete="off">
+            <div class="row">
+              <div class="col-md-4" >
+                <div class="form-group">
+                  <label for="exampleInputText1">Name</label>
+                  <input type="text" class="form-control" id="exampleInputText1" name="exampleInputText1" >
+                </div>
+              </div>
+              <div class="col-md-4" >
+                <div class="form-group">
+                  <label for="exampleInputText2">Name</label>
+                  <input type="text" class="form-control" id="exampleInputText2" name="exampleInputText2" >
+                </div>
+              </div>
+              <div class="col-md-4" >
+                  <div class="form-group">
+                    <label for="exampleInputText2">Name</label>
+                    <input type="text" class="form-control" id="exampleInputText2" name="exampleInputText2" >
+                  </div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-md-4" >
+                  <div class="form-group">
+                    <label for="exampleDate">Date Time</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="exampleDate" name="exampleDate" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" >
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary fa fa-calendar trigger" type="button" [owlDateTimeTrigger]="dt1" ></button>
+                        </div>
+                        <owl-date-time #dt1></owl-date-time>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-4" >
+                  <div class="form-group">
+                    <label for="exampleDate">Date Only</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="exampleDate" name="exampleDate" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2" >
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary fa fa-calendar trigger" type="button" [owlDateTimeTrigger]="dt2" ></button>
+                      </div>
+                      <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4" >
+                  <div class="form-group">
+                    <label for="exampleDate">Date range</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="exampleDate" name="exampleDate" [owlDateTime]="dt3" [owlDateTimeTrigger]="dt3" [selectMode]="'range'">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary fa fa-calendar trigger" type="button" [owlDateTimeTrigger]="dt3" ></button>
+                      </div>
+                      <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" >
+                <div class="col-md-4" >
+                  <div class="form-group row">
+                    <label for="exampleInline" class="col-sm-3 col-form-label">Field inline</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="exampleInline" >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4" >
+                  <div class="form-group row">
+                    <label for="exampleInline" class="col-sm-3 col-form-label">Field inline</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="exampleInline" >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4" >
+                  <div class="form-group row">
+                    <label for="exampleInline" class="col-sm-3 col-form-label">Field inline</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="exampleInline" >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" >
+                <div class="col-md-12" >
+                  <div class="pull-right" >
+                    <button mat-raised-button color="primary" class="btn-w-md mr-2">Search</button>
+                    <button type="reset" mat-raised-button color="default" class="btn-w-md">Clear</button>
+                  </div>
+                </div>
+              </div>
+          </form>
+  
+        </div>
+      </div>
+
+      <div class="box box-transparent">
+        <div class="box-header no-padding-h">Show 1 - 10 of 100 items</div>
+        <div class="no-padding-h">
+
+        <div class="box box-default table-box table-responsive mdl-shadow--2dp">
+            <table class="mdl-data-table">
+              <thead>
+                <tr>
+                  <th class="mdl-data-table__cell--non-numeric">#</th>
+                  <th class="mdl-data-table__cell--non-numeric"><i class="fa fa-sort-amount-desc text-dark" aria-hidden="true"></i> Name</th>
+                  <th class="mdl-data-table__cell--non-numeric"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i> Date create</th>
+                  <th class="mdl-data-table__cell--non-numeric"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i> Status</th>
+                  <th class="mdl-data-table__cell--non-numeric" >Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mdl-data-table__cell--non-numeric">1</td>
+                  <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+                  <td class="mdl-data-table__cell--non-numeric">11 Mar 2019</td>
+                  <td class="mdl-data-table__cell--non-numeric"><span class="badge badge-pill badge-primary">Active</span></td>
+                  <td class="mdl-data-table__cell--non-numeric">  
+                      <a href="javascript:;" (click)="openDialog(dialog_body)" class="btn-icon btn-icon-sm mx-1 btn-primary"><i class="fa fa-eye"></i></a>
+                      <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-warning"><i class="fa fa-pencil"></i></a>
+                      <a href="javascript:;" (click)="openConfirmDelete()" class="btn-icon btn-icon-sm mx-1 btn-danger"><i class="fa fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="mdl-data-table__cell--non-numeric">2</td>
+                  <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)<br/><small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small></td>
+                  <td class="mdl-data-table__cell--non-numeric">11 Mar 2019</td>
+                  <td class="mdl-data-table__cell--non-numeric"><span class="badge badge-pill badge-warning">Active</span></td>
+                  <td class="mdl-data-table__cell--non-numeric">  
+                      <a href="javascript:;" (click)="openDialog(dialog_body)" class="btn-icon btn-icon-sm mx-1 btn-primary"><i class="fa fa-eye"></i></a>
+                      <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-warning"><i class="fa fa-pencil"></i></a>
+                      <a href="javascript:;" (click)="openConfirmDelete()" class="btn-icon btn-icon-sm mx-1 btn-danger"><i class="fa fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="mdl-data-table__cell--non-numeric">3</td>
+                  <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)<br/><small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small></td>
+                  <td class="mdl-data-table__cell--non-numeric">11 Mar 2019</td>
+                  <td class="mdl-data-table__cell--non-numeric"><span class="badge badge-pill badge-success">Active</span></td>
+                  <td class="mdl-data-table__cell--non-numeric">  
+                      <a href="javascript:;" (click)="openDialog(dialog_body)" class="btn-icon btn-icon-sm mx-1 btn-primary"><i class="fa fa-eye"></i></a>
+                      <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-warning"><i class="fa fa-pencil"></i></a>
+                      <a href="javascript:;" (click)="openConfirmDelete()" class="btn-icon btn-icon-sm mx-1 btn-danger"><i class="fa fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="mdl-data-table__cell--non-numeric">4</td>
+                  <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)<br/><small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small></td>
+                  <td class="mdl-data-table__cell--non-numeric">11 Mar 2019</td>
+                  <td class="mdl-data-table__cell--non-numeric"><span class="badge badge-pill badge-info">Active</span></td>
+                  <td class="mdl-data-table__cell--non-numeric">  
+                      <a href="javascript:;" (click)="openDialog(dialog_body)" class="btn-icon btn-icon-sm mx-1 btn-primary"><i class="fa fa-eye"></i></a>
+                      <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-warning"><i class="fa fa-pencil"></i></a>
+                      <a href="javascript:;" (click)="openConfirmDelete()" class="btn-icon btn-icon-sm mx-1 btn-danger"><i class="fa fa-trash"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="box-footer row" >
+            <div class="col-12 col-sm-12 col-md-6" >
+              <form class="form-inline mb-2" role="form">
+                <label for="inlineFormInput">Show </label>
+                <select class="ml-2 mr-2 form-control-sm" id="exampleSelect" name="exampleSelect" >
+                  <option>10</option>
+                  <option>50</option>
+                  <option>100</option>
+                </select>
+                <label for="inlineFormInput"> items per page</label>
+              </form>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6" >
+              <nav aria-label="Page navigation example">
+                  <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-double-left"></i></a>
+                    </li>
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-left"></i></a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#"><i class="fa fa-angle-double-right"></i></a>
+                    </li>
+                  </ul>
+                </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+</section>
+  
+<ng-template #dialog_body>
+  <h2 mat-dialog-title>Install Angular</h2>
+  <mat-dialog-content class="mat-typography">
+    <h3>Develop across all platforms</h3>
+    <p>Learn one way to build applications with Angular and reuse your code and abilities to build
+      apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>
+  
+    <h3>Speed &amp; Performance</h3>
+    <p>Achieve the maximum speed possible on the Web Platform today, and take it further, via Web
+      Workers and server-side rendering. Angular puts you in control over scalability. Meet huge
+      data requirements by building data models on RxJS, Immutable.js or another push-model.</p>
+  
+    <h3>Incredible tooling</h3>
+    <p>Build features quickly with simple, declarative templates. Extend the template language with
+      your own components and use a wide array of existing components. Get immediate Angular-specific
+      help and feedback with nearly every IDE and editor. All this comes together so you can focus
+      on building amazing apps rather than trying to make the code work.</p>
+  
+    <h3>Loved by millions</h3>
+    <p>From prototype through global deployment, Angular delivers the productivity and scalable
+      infrastructure that supports Google's largest applications.</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end" >
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+  </mat-dialog-actions>
+</ng-template>

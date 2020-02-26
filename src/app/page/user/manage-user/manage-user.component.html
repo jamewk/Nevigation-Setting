@@ -1,0 +1,100 @@
+<section class="container-fluid">
+  <article class="article">
+
+    <div class="row">
+      <div class="col-4">
+        <h2 class="article-title">{{headerPage}}
+          <span class=" d-none d-sm-block">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item">User Management</li>
+              <li class="breadcrumb-item">User</li>
+              <li class="breadcrumb-item active">{{typePage}}</li>
+            </ul>
+          </span>
+        </h2>
+      </div>
+      <div class="col-8 mt-3">
+        <div class="pull-right">
+          <button mat-raised-button color="warn" class="btn-w-md mr-2" *ngIf="typePage=='view'"
+            [routerLink]="['edit']" id="btnEdit1"><i class="material-icons">edit</i> Edit</button>
+          <span class="alternate-theme">
+            <button mat-raised-button color="warn" class="btn-w-md mr-2" *ngIf="typePage=='view'"
+              (click)="onConfirmDelete(userId)" id="btnDelete1"><i class="material-icons">delete</i>
+              Delete</button>
+          </span>
+          <button mat-raised-button color="accent" class="btn-w-md  mr-2"
+            [disabled]="formSubmitted && userForm.invalid" *ngIf="typePage!='view'" id="btnSave1"
+            (click)="onSave()"><i class="material-icons">save</i> Save</button>
+          <button mat-raised-button class="btn-w-md btn-w-md" (click)="onBack()" id="btnCancel1"><i
+              class="material-icons">cancel</i>Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="box box-default table-box table-responsive mdl-shadow--2dp">
+      <div class="box-body">
+        <form role="form" [formGroup]="userForm" autocomplete="off">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txtFirstName">Firstname<span class="text-danger" *ngIf="typePage!='view'">*</span></label>
+                <input type="text" class="form-control" formControlName="firstname" id="txtFirstName" placeholder="">
+                <div *ngIf="formSubmitted && getValidateForm.firstname.errors" class="text-danger">
+                    {{msg.require}}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txtLastName">Lastname<span class="text-danger" *ngIf="typePage!='view'">*</span></label>
+                <input type="text" class="form-control" formControlName="lastname" id="txtLastName" placeholder="">
+                <div *ngIf="formSubmitted && getValidateForm.lastname.errors" class="text-danger">
+                    {{msg.require}}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txtEmail">Email<span class="text-danger" *ngIf="typePage!='view'">*</span></label>
+                <input type="text" class="form-control" formControlName="email" id="txtEmail" placeholder="">
+                <div *ngIf="formSubmitted && getValidateForm.email.errors" class="text-danger">
+                    {{msg.require}}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txtMobileNo">Mobile No.<span class="text-danger"
+                    *ngIf="typePage!='view'">*</span></label>
+                <input type="text" class="form-control" formControlName="phonenumber" id="txtMobileNo" placeholder="">
+                <div *ngIf="formSubmitted && getValidateForm.phonenumber.errors" class="text-danger">
+                    {{msg.require}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>    
+  </article>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="pull-right">
+        <button mat-raised-button color="warn" class="btn-w-md mr-2" *ngIf="typePage=='view'"
+          [routerLink]="['edit']" id="btnEdit2"><i class="material-icons">edit</i> Edit</button>
+        <span class="alternate-theme">
+          <button mat-raised-button color="warn" class="btn-w-md mr-2" *ngIf="typePage=='view'"
+            (click)="onConfirmDelete(userId)" id="btnDelete2"><i class="material-icons">delete</i>
+            Delete</button>
+        </span>
+        <button mat-raised-button color="accent" class="btn-w-md  mr-2"
+          [disabled]="formSubmitted && userForm.invalid" *ngIf="typePage!='view'" (click)="onSave()" id="btnSave2"><i
+            class="material-icons">save</i> Save</button>
+        <button mat-raised-button class="btn-w-md btn-w-md" (click)="onBack()" id="btnCancel2"><i
+            class="material-icons">cancel</i>Cancel</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+{
+  "apps": [{
+    "name": "ais_material-fe",
+    "script": "./frontend.js",
+    "watch": true,
+    "cwd": "./",
+    "env": {
+      "FE_PORT": 80,
+      "SSL": false
+    }
+  }]
+}

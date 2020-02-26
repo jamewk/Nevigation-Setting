@@ -1,0 +1,151 @@
+<section class="container-fluid">
+  
+  <article class="article">
+
+    <form [formGroup]="validationForm" (ngSubmit)="onSave()" autocomplete="off" >
+  
+      <div class="row" >
+        <div class="col-4" >
+          <h2 class="article-title">Articles
+            <span class=" d-none d-sm-block" >
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:;">Article Management</a></li>
+                <li class="breadcrumb-item active">Articles</li>
+              </ul>
+            </span>
+          </h2>
+        </div>
+        <div class="col-8 mt-3" >
+            <div class="pull-right" >
+              <a [routerLink]="['/app/articles']" mat-raised-button class="btn btn-w-md mr-2"><i class="material-icons">cancel</i> default</a>
+              <a [routerLink]="['/app/articles']" mat-raised-button class="btn btn-w-md mr-2" color="primary" ><i class="material-icons">cached</i> primary</a>
+              <a [routerLink]="['/app/articles']" mat-raised-button color="warn" class="btn btn-w-md mr-2"><i class="material-icons">edit</i> warn</a>
+              <span class="alternate-theme">
+                <a href="javascript:;" (click)="onShowSweetError()" mat-raised-button color="warn" class="btn btn-w-md mr-2"><i class="material-icons">delete</i> alternate warn</a>
+              </span>
+              <button type="submit" mat-raised-button color="accent" class="btn btn-w-md mr-2" [disabled]="formSubmitted && validationForm.invalid" ><i class="material-icons">save</i> accent</button><div class="divider divider-sm"></div>
+            </div>
+        </div>
+      </div>
+
+      <div class="row" >
+          <div class="col-md-8" >
+            <div class="box box-default table-box mdl-shadow--2dp">
+              <div class="box-header box-dark">Article infomation</div>
+              <div class="box-body">
+                  <mat-tab-group>
+                    <mat-tab label="Thai">
+                        <div class="form-group mt-3">
+                          <label for="title_th">Title <span class="text-danger">*</span></label>
+                          <input type="text" class="form-control" id="title_th" name="title_th" formControlName="title_th" >
+                          <div *ngIf="formSubmitted && getValidateForm.title_th.errors" class="text-danger">
+                              <i class="fa fa-exclamation-triangle"></i> Please enter title.
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="desc_th">Description <span class="text-danger">*</span></label>
+                          <quill-editor [style]="{height: '400px'}" (onEditorCreated)="setFocus($event)" (onContentChanged)="contentTHChange($event)" ></quill-editor>
+                          <div *ngIf="formSubmitted && getValidateForm.desc_th.errors" class="text-danger">
+                              <i class="fa fa-exclamation-triangle"></i> Please enter description.
+                          </div>
+                        </div>
+                        
+                    </mat-tab>
+                    <mat-tab label="English">
+                        <div class="form-group mt-3">
+                          <label for="title_en">Title <span class="text-danger">*</span></label>
+                          <input type="text" class="form-control" id="title_en" name="title_en" formControlName="title_en" >
+                          <div *ngIf="formSubmitted && getValidateForm.title_en.errors" class="text-danger">
+                              <i class="fa fa-exclamation-triangle"></i> Please enter title.
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputText1">Description <span class="text-danger">*</span></label>
+                          <quill-editor [style]="{height: '400px'}" (onEditorCreated)="setFocus($event)" (onContentChanged)="contentENChange($event)" ></quill-editor>
+                          <div *ngIf="formSubmitted && getValidateForm.desc_en.errors" class="text-danger">
+                              <i class="fa fa-exclamation-triangle"></i> Please enter description.
+                          </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Chinese">
+                        <p>TBC</p>
+                    </mat-tab>
+                  </mat-tab-group>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-4" >
+          <div class="box box-default table-box mdl-shadow--2dp">
+            <div class="box-header box-dark">Options</div>
+            <div class="box-body">
+                <div class="form-group mt-3">
+                  <label for="exampleInputText1">Publish</label>
+                  <mat-slide-toggle class="ml-4" ></mat-slide-toggle>
+                </div>
+                <div class="form-group">
+                  <label for="publish_date">Publish Date <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="publish_date" name="publish_date" formControlName="publish_date" [owlDateTime]="dt3" [owlDateTimeTrigger]="dt3" [selectMode]="'range'">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary fa fa-calendar trigger" type="button" [owlDateTimeTrigger]="dt3" ></button>
+                    </div>
+                    <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+                  </div>
+                  <div *ngIf="formSubmitted && getValidateForm.publish_date.errors" class="text-danger">
+                      <i class="fa fa-exclamation-triangle"></i> Please enter publish date.
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Select options (Multiple)</label>
+                    <angular2-multiselect [data]="dropdownList"
+                      [settings]="dropdownSettings" 
+                      class="form-control"
+                      formControlName="select_option"
+                      (onSelect)="onItemSelect($event)" 
+                      (onDeSelect)="OnItemDeSelect($event)"
+                      (onSelectAll)="onSelectAll($event)"
+                      (onDeSelectAll)="onDeSelectAll($event)">
+                  </angular2-multiselect>
+                </div>
+                <div class="form-group">
+                    <label for="name">Select options (Single)</label>
+                    <angular2-multiselect [data]="dropdownList"
+                      [settings]="dropdownSettingsSingle" 
+                      class="form-control"
+                      formControlName="select_option_single"
+                      (onSelect)="onItemSelect($event)" 
+                      (onDeSelect)="OnItemDeSelect($event)"
+                      (onSelectAll)="onSelectAll($event)"
+                      (onDeSelectAll)="onDeSelectAll($event)">
+                  </angular2-multiselect>
+                </div>
+                <div class="form-group mt-3">
+                  <label for="title_th">Upload file <span class="text-danger">*</span></label>
+                  <div class="custom-file mb-3">
+                    <input type="file" class="form-control" id="customFile" name="filename">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                </div>
+                <hr/>
+                <div class="form-group">
+                  <label style="display: inline-block; width: 120px;">Radio buttons</label>
+                  <mat-radio-group class="mat-radio-group-spacing">
+                    <mat-radio-button value="Apple">Apple</mat-radio-button>
+                    <mat-radio-button value="Banana">Banana</mat-radio-button>
+                    <mat-radio-button value="Mango">Mango</mat-radio-button>
+                  </mat-radio-group>   
+                </div>
+                <div class="form-group">
+                  <label style="display: inline-block; width: 120px;">Checkbox</label>
+                  <mat-checkbox [checked]="true">True</mat-checkbox>
+                  <span class="space space-md"></span>
+                  <mat-checkbox [checked]="false">False</mat-checkbox>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </article>
+
+</section>

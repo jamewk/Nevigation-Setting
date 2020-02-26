@@ -1,0 +1,170 @@
+<section class="container-fluid">
+  
+  <article class="article">
+
+      <div class="row">
+        <div class="col-6" >
+          <h2 class="article-title">Category POI
+            <span class=" d-none d-sm-block" >
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item active">Category POI</li>
+              </ul>
+            </span>
+          </h2>
+        </div>
+        <div class="col-6 mt-3" >
+          <a mat-raised-button color="primary" class="btn btn-w-md pull-right"><i class="material-icons">add_circle_outline</i> New Categories POI</a><div class="divider divider-sm"></div>
+        </div>
+      </div>
+      <div class="box box-default table-box table-responsive mdl-shadow--2dp">
+        <div class="box-header box-dark"> Categories Information</div>
+
+        <div class="p-5">
+          <div class="box box-default table-box table-responsive mdl-shadow--2dp">
+            <div class="box-header box-dark"><i class="fa fa-search mr-2"></i>Search Filter</div>
+            <div class="box-body">
+              <form role="form" autocomplete="off">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleInputText1">Categories POI Name</label>
+                      <input type="text" class="form-control" id="exampleInputText1" name="exampleInputText1">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleInputText2">Publish Flag</label>
+                      <input type="text" class="form-control" id="exampleInputText2" name="exampleInputText2">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="pull-right">
+                      <button mat-raised-button color="primary" class="btn-w-md mr-2">Search</button>
+                      <button type="reset" mat-raised-button color="default" class="btn-w-md">Clear</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+        
+            </div>
+          </div>
+        
+          <div class="box box-transparent">
+            <div class="box-header no-padding-h">Show 1 - 10 of 100 items</div>
+            <div class="no-padding-h">
+        
+              <div class="box box-default table-box table-responsive mdl-shadow--2dp">
+                <table class="mdl-data-table">
+                  <thead>
+                    <tr>
+                      <th class="mdl-data-table__cell--non-numeric">#</th>
+                      <th class="mdl-data-table__cell--non-numeric">Category POI Name</th>
+                      <th class="mdl-data-table__cell--non-numeric">Last Update</th>
+                      <th class="mdl-data-table__cell--non-numeric">Publish Flag</th>
+                      <th class="mdl-data-table__cell--non-numeric">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1</td>
+                      <td class="mdl-data-table__cell--non-numeric">ร้านค้า</td>
+                      <td class="mdl-data-table__cell--non-numeric">11 Mar 2019</td>
+                      <td class="mdl-data-table__cell--non-numeric"><span class="badge badge-pill badge-primary">Active</span>
+                      </td>
+                      <td class="mdl-data-table__cell--non-numeric">
+                        <a href="javascript:;" (click)="openDialog(dialog_body)"
+                          class="btn-icon btn-icon-sm mx-1 btn-primary"><i class="fa fa-eye"></i></a>
+                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-warning"><i class="fa fa-pencil"></i></a>
+                        <a href="javascript:;" (click)="openConfirmDelete()" class="btn-icon btn-icon-sm mx-1 btn-danger"><i
+                            class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">2</td>
+                      <td class="mdl-data-table__cell--non-numeric">ธนาคาร</td>
+                      <td class="mdl-data-table__cell--non-numeric">11 Mar 2019</td>
+                      <td class="mdl-data-table__cell--non-numeric"><span class="badge badge-pill badge-warning">Active</span>
+                      </td>
+                      <td class="mdl-data-table__cell--non-numeric">
+                        <a href="javascript:;" (click)="openDialog(dialog_body)"
+                          class="btn-icon btn-icon-sm mx-1 btn-primary"><i class="fa fa-eye"></i></a>
+                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-warning"><i class="fa fa-pencil"></i></a>
+                        <a href="javascript:;" (click)="openConfirmDelete()" class="btn-icon btn-icon-sm mx-1 btn-danger"><i
+                            class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">3</td>
+                      <td class="mdl-data-table__cell--non-numeric">อาหาร</td>
+                      <td class="mdl-data-table__cell--non-numeric">11 Mar 2019</td>
+                      <td class="mdl-data-table__cell--non-numeric"><span class="badge badge-pill badge-success">Active</span>
+                      </td>
+                      <td class="mdl-data-table__cell--non-numeric">
+                        <a href="javascript:;" (click)="openDialog(dialog_body)"
+                          class="btn-icon btn-icon-sm mx-1 btn-primary"><i class="fa fa-eye"></i></a>
+                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-warning"><i class="fa fa-pencil"></i></a>
+                        <a href="javascript:;" (click)="openConfirmDelete()" class="btn-icon btn-icon-sm mx-1 btn-danger"><i
+                            class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">4</td>
+                      <td class="mdl-data-table__cell--non-numeric">ความบันเทิง</td>
+                      <td class="mdl-data-table__cell--non-numeric">11 Mar 2019</td>
+                      <td class="mdl-data-table__cell--non-numeric"><span class="badge badge-pill badge-info">Active</span></td>
+                      <td class="mdl-data-table__cell--non-numeric">
+                        <a href="javascript:;" (click)="openDialog(dialog_body)"
+                          class="btn-icon btn-icon-sm mx-1 btn-primary"><i class="fa fa-eye"></i></a>
+                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-warning"><i class="fa fa-pencil"></i></a>
+                        <a href="javascript:;" (click)="openConfirmDelete()" class="btn-icon btn-icon-sm mx-1 btn-danger"><i
+                            class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+        
+              <div class="box-footer row">
+                <div class="col-12 col-sm-12 col-md-6">
+                  <form class="form-inline mb-2" role="form">
+                    <label for="inlineFormInput">Show </label>
+                    <select class="ml-2 mr-2 form-control-sm" id="exampleSelect" name="exampleSelect">
+                      <option>10</option>
+                      <option>50</option>
+                      <option>100</option>
+                    </select>
+                    <label for="inlineFormInput"> items per page</label>
+                  </form>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6">
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-double-left"></i></a>
+                      </li>
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-left"></i></a>
+                      </li>
+                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#"><i class="fa fa-angle-double-right"></i></a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    </article>
+
+</section>

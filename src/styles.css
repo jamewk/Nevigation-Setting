@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+@import '~ngx-toastr/toastr.css';
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
+body {
+    margin: 0;
+}
+quill-editor {
+    display: block;
+}
+[quill-editor-element] {
+    font-family: "Roboto";
+}
+[quill-editor-toolbar] .ql-font span[data-label="Aref Ruqaa"]::before {
+    font-family: "Aref Ruqaa";
+}
+[quill-editor-toolbar] .ql-font span[data-label="Mirza"]::before {
+    font-family: "Mirza";
+}
+[quill-editor-toolbar] .ql-font span[data-label="Roboto"]::before {
+    font-family: "Roboto";
+}
+
+/* Set content font-families */
+
+.ql-font-mirza {
+    font-family: "Mirza";
+}
+.ql-font-aref {
+    font-family: "Aref Ruqaa";
+}
+pre {
+    background-color: #fcfcfc;
+    padding: 5px;
+    border: 1px solid #b2b2b2;
+    color: #363030;
+}
+.random-custom-class {
+    border: 2px dotted #5c63c5;
+    ;
+}
+.swal2-styled.swal2-cancel {
+    margin: 0px 5px 0 !important;
+}
+.bg-color-ais-color {
+    background-color: #8FBA33;
+    color: #fff;
+}
+.c-btn {
+    line-height: 1.5 !important;
+    padding: 0.429rem 0.7rem !important;
+}
+.selected-list .c-list .c-token {
+    padding: 0px 25px 0px 8px !important;
+    margin-top: 0px !important;
+}
+.selected-list .c-angle-down, .selected-list .c-angle-up {
+    width: 8px !important;
+    height: 14px !important;
+}
