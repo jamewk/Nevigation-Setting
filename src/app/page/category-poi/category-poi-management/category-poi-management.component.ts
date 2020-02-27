@@ -34,6 +34,7 @@ export class CategoryPoiManagementComponent implements OnInit {
     if (this.routeUrl.includes('view')) {
       this.pageType = 'View';
       this.onInitView();
+      
     } else if (this.routeUrl.includes('edit')) {
       this.pageType = 'Edit';
       this.onInitEdit();
@@ -45,10 +46,16 @@ export class CategoryPoiManagementComponent implements OnInit {
 
     this.categoryForm.controls['categoryName'].setValue('catgory');
     this.categoryForm.controls['isPublish'].setValue(true);
+
+    this.subCategoryList.push(this.createSubCategory({subCategoryName: 'sub category one', isPublish: true, editable: false}));
+    this.subCategoryList.push(this.createSubCategory({subCategoryName: 'sub category two', isPublish: false, editable: false}));
   }
   onInitEdit(){
     this.categoryForm.controls['categoryName'].setValue('catgory');
     this.categoryForm.controls['isPublish'].setValue(true);
+
+    this.subCategoryList.push(this.createSubCategory({subCategoryName: 'sub category one', isPublish: true, editable: false}));
+    this.subCategoryList.push(this.createSubCategory({subCategoryName: 'sub category two', isPublish: false, editable: false}));
   }
   createCategoryForm(){
     this.categoryForm = this.formBuilder.group({
@@ -147,6 +154,9 @@ export class CategoryPoiManagementComponent implements OnInit {
       });
       return;
     }
+  }
+  onNavigateByEdit(id) {
+    this.router.navigate([`/category-poi/${id}/edit`]);
   }
 
 }

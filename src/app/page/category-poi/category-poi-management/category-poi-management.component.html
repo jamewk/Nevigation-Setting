@@ -13,7 +13,7 @@
     <div class="col-8 mt-3">
       <div class="pull-right">
         <span *ngIf="pageType == 'View'">
-            <button  type="button" mat-raised-button color="warn" class="btn mr-2"><i
+            <button  type="button" mat-raised-button color="warn" class="btn mr-2" (click)="onNavigateByEdit('123456789')"><i
               class="material-icons">edit</i> Edit
             </button>
             <button type="button" style="background-color: #f44336;color:#fff" mat-raised-button class="btn btn-red mr-2"><i
@@ -88,12 +88,12 @@
                     <th class="mdl-data-table__cell--non-numeric border-right">No</th>
                     <th class="mdl-data-table__cell--non-numeric border-right">Sub-Category Name</th>
                     <th class="mdl-data-table__cell--non-numeric border-right">Publish Flag</th>
-                    <th class="mdl-data-table__cell--non-numeric">Action</th>
+                    <th class="mdl-data-table__cell--non-numeric" *ngIf="pageType != 'View'">Action</th>
                   </tr>
                 </thead>
                 <tbody formArrayName="subCategories">
                   <tr *ngFor="let subCategory of subCategoryFormGroup.controls; let i=index" [formGroupName]="i">
-                    <td class="mdl-data-table__cell--non-numeric text-center border-right">
+                    <td class="mdl-data-table__cell--non-numeric border-right">
                       {{i+1}}
                     </td>
                     <td class="mdl-data-table__cell--non-numeric border-right">
@@ -114,7 +114,7 @@
                         <mat-slide-toggle formControlName="isPublish"></mat-slide-toggle>
                       </div>
                     </td>
-                    <td class="mdl-data-table__cell--non-numeric text-center">
+                    <td class="mdl-data-table__cell--non-numeric text-center" *ngIf="pageType != 'View'">
                       <a *ngIf="!getSubCategoryFormGroup(i).controls['editable'].value" href="javascript:;"
                       class="btn-icon btn-icon-sm mx-1 btn-warning" (click)="editSubCategory(position,i)"><i
                         class="material-icons md-18">edit</i></a>
@@ -146,7 +146,7 @@
     <div class="col-12 mt-3">
       <div class="pull-right">
         <span *ngIf="pageType == 'View'">
-            <button  type="button" mat-raised-button color="warn" class="btn mr-2"><i
+            <button  type="button" mat-raised-button color="warn" class="btn mr-2" (click)="onNavigateByEdit('123456789')"><i
               class="material-icons">edit</i> Edit
             </button>
             <button type="button" mat-raised-button style="background-color: #f44336;color:#fff" class="btn btn-danger mr-2"><i
