@@ -19,7 +19,6 @@ export class CategoryPoiManagementComponent implements OnInit {
   id: string = '';
   routeUrl: string = '';
   //
-
   constructor(
     private appConfigService: AppConfigService,
     private formBuilder: FormBuilder,
@@ -30,7 +29,6 @@ export class CategoryPoiManagementComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.config = this.appConfigService.getConfig();
   }
-
   ngOnInit() {
     this.createCategoryForm();
   }
@@ -118,6 +116,7 @@ export class CategoryPoiManagementComponent implements OnInit {
     });
   }
   save(){
+    console.log(this.categoryForm.value);
     this.isSubmit = true;
     if (!this.categoryForm.valid) {
       swal({

@@ -6,27 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyMaterialModule } from './my-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// Layout
-import { LayoutComponent } from './layout/layout.component';
-import { PreloaderDirective } from './layout/preloader.directive';
-// Header
-import { AppHeaderComponent } from './layout/header/header.component';
-// Sidenav
-import { AppSidenavComponent } from './layout/sidenav/sidenav.component';
-import { ToggleOffcanvasNavDirective } from './layout/sidenav/toggle-offcanvas-nav.directive';
-import { AutoCloseMobileNavDirective } from './layout/sidenav/auto-close-mobile-nav.directive';
-import { AppSidenavMenuComponent } from './layout/sidenav/sidenav-menu/sidenav-menu.component';
-import { AccordionNavDirective } from './layout/sidenav/sidenav-menu/accordion-nav.directive';
-import { AppendSubmenuIconDirective } from './layout/sidenav/sidenav-menu/append-submenu-icon.directive';
-import { HighlightActiveItemsDirective } from './layout/sidenav/sidenav-menu/highlight-active-items.directive';
-// Footer
-import { AppFooterComponent } from './layout/footer/footer.component';
-
-// Pages
-import { DashboardComponent } from './dashboard/dashboard.component';
-
-// Sub modules
-import { LayoutModule } from './layout/layout.module';
 import { SharedModule } from './shared/shared.module';
 
 // hmr
@@ -41,12 +20,13 @@ import { QuillModule } from 'ngx-quill';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { NgxPaginationModule } from 'ngx-pagination';
 
-
 import { LoginComponent } from './page/example/login/login.component';
 import { ListUserComponent } from './page/user/list-user/list-user.component';
 import { ManageUserComponent } from './page/user/manage-user/manage-user.component';
 import { CategoryPoiListComponent } from './page/category-poi/category-poi-list/category-poi-list.component';
 import { CategoryPoiManagementComponent } from './page/category-poi/category-poi-management/category-poi-management.component';
+import { Page404Component } from './extra-pages/404/404.component';
+import { Page500Component } from './extra-pages/500/500.component';
 
 @NgModule({
   imports: [
@@ -57,11 +37,7 @@ import { CategoryPoiManagementComponent } from './page/category-poi/category-poi
     BrowserAnimationsModule,
     MyMaterialModule,
     AppRoutingModule,
-
-    // Sub modules
-    LayoutModule,
     SharedModule,
-
     OwlDateTimeModule, 
     OwlNativeDateTimeModule,
     AngularMultiSelectModule,
@@ -83,30 +59,15 @@ import { CategoryPoiManagementComponent } from './page/category-poi/category-poi
   ],
   declarations: [
     AppComponent,
-    // Layout
-    LayoutComponent,
-    PreloaderDirective,
-    // Header
-    AppHeaderComponent,
-    // Sidenav
-    AppSidenavComponent,
-    ToggleOffcanvasNavDirective,
-    AutoCloseMobileNavDirective,
-    AppSidenavMenuComponent,
-    AccordionNavDirective,
-    AppendSubmenuIconDirective,
-    HighlightActiveItemsDirective,
-    // Footer
-    AppFooterComponent,
-    //
-    DashboardComponent,
     ExListComponent,
     ExCreateComponent,
     LoginComponent,
     ListUserComponent,
     ManageUserComponent,
     CategoryPoiListComponent,
-    CategoryPoiManagementComponent
+    CategoryPoiManagementComponent,
+    Page404Component,
+    Page500Component,
   ],
   bootstrap: [AppComponent]
 })

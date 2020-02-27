@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 import { APPCONFIG } from './config';
-import { LayoutService } from './layout/layout.service';
 
 // 3rd
 import 'styles/material2-theme.scss';
@@ -17,7 +16,7 @@ import 'styles/app.scss';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  providers: [LayoutService],
+  providers: [],
 })
 export class AppComponent implements OnInit {
   public AppConfig: any;
