@@ -13,7 +13,7 @@
           </h2>
         </div>
         <div class="col-6 mt-3" >
-          <a mat-raised-button color="primary" class="btn btn-w-md pull-right"><i class="material-icons">add_circle_outline</i> New Categories POI</a><div class="divider divider-sm"></div>
+          <a mat-raised-button color="primary" class="btn btn-w-md pull-right" [routerLink]="['/category-poi/create']"><i class="material-icons">add_circle_outline</i> New Categories POI</a><div class="divider divider-sm"></div>
         </div>
       </div>
       <div class="box box-default mdl-shadow--2dp">
@@ -78,11 +78,9 @@
                       <td class="mdl-data-table__cell--non-numeric"><span class="badge badge-pill badge-success">Active</span>
                       </td>
                       <td class="mdl-data-table__cell--non-numeric">
-                        <a href="javascript:;" (click)="openDialog(dialog_body)"
-                          class="btn-icon btn-icon-sm mx-1 btn-primary"><i class="fa fa-eye"></i></a>
+                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-primary"><i class="fa fa-eye"></i></a>
                         <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-warning"><i class="fa fa-pencil"></i></a>
-                        <a href="javascript:;" (click)="openConfirmDelete()" class="btn-icon btn-icon-sm mx-1 btn-danger"><i
-                            class="fa fa-trash"></i></a>
+                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-danger"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
                     <tr *ngIf="categoryList.length == 0">

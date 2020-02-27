@@ -46,6 +46,7 @@ import { LoginComponent } from './page/example/login/login.component';
 import { ListUserComponent } from './page/user/list-user/list-user.component';
 import { ManageUserComponent } from './page/user/manage-user/manage-user.component';
 import { CategoryPoiListComponent } from './page/category-poi/category-poi-list/category-poi-list.component';
+import { CategoryPoiManagementComponent } from './page/category-poi/category-poi-management/category-poi-management.component';
 
 @NgModule({
   imports: [
@@ -105,6 +106,7 @@ import { CategoryPoiListComponent } from './page/category-poi/category-poi-list/
     ListUserComponent,
     ManageUserComponent,
     CategoryPoiListComponent,
+    CategoryPoiManagementComponent
   ],
   bootstrap: [AppComponent]
 })
