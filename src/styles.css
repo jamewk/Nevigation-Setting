@@ -61,3 +61,17 @@ pre {
     width: 8px !important;
     height: 14px !important;
 }
+
+hr.style3 {
+	border-top: 1px dashed #8c8b8b;
+}
+
+.btn-cancel, .btn-cancel:hover, .btn-cancel:active, .btn-cancel:visited {
+    background-color: #e5e5e5;
+    color: black;
+}
+
+.btn-save, .btn-save:hover, .btn-save:active, .btn-save:visited {
+    background-color: #4caf50;
+    color: white;
+}
