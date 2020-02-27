@@ -16,7 +16,7 @@
             <button  type="button" mat-raised-button color="warn" class="btn mr-2"><i
               class="material-icons">edit</i> Edit
             </button>
-            <button type="button" mat-raised-button class="btn btn-danger mr-2"><i
+            <button type="button" style="background-color: #f44336;color:#fff" mat-raised-button class="btn btn-red mr-2"><i
               class="material-icons">delete_forever</i> Delete
             </button>
         </span>
@@ -68,12 +68,19 @@
           </div>
         </div>
         <hr class="style3">
-        <h4>Sub-Categories</h4>
+        <br>
         <div class="row">
-          <div class="col-md-8">
-            <a matTooltip="Add Position" mat-raised-button color="primary" class="pull-right mb-1" (click)="addSubCategory();">
+          <div class="col-8 col-sm-6 col-md-4 col-lg-4"> 
+            <h4 class="m-0">Sub-Categories</h4>
+          </div>
+          <div class="col-4 col-sm-6 col-md-4 col-lg-4 mb-1 text-right">
+            <a mat-raised-button color="primary" class="pull-right" (click)="addSubCategory();" *ngIf="pageType != 'View'">
               <i class="material-icons">add_circle_outline</i>
             </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
             <div class="box box-default table-box table-responsive mdl-shadow--2dp">
               <table class="mdl-data-table">
                 <thead>
@@ -142,7 +149,7 @@
             <button  type="button" mat-raised-button color="warn" class="btn mr-2"><i
               class="material-icons">edit</i> Edit
             </button>
-            <button type="button" mat-raised-button class="btn btn-danger mr-2"><i
+            <button type="button" mat-raised-button style="background-color: #f44336;color:#fff" class="btn btn-danger mr-2"><i
               class="material-icons">delete_forever</i> Delete
             </button>
         </span>

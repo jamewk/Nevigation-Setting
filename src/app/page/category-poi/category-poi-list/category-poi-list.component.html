@@ -78,8 +78,8 @@
                       <td class="mdl-data-table__cell--non-numeric"><span class="badge badge-pill badge-success">Active</span>
                       </td>
                       <td class="mdl-data-table__cell--non-numeric">
-                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-primary"><i class="fa fa-eye"></i></a>
-                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-warning"><i class="fa fa-pencil"></i></a>
+                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-primary" (click)="onNavigateByView('123456789')"><i class="fa fa-eye"></i></a>
+                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-warning" (click)="onNavigateByEdit('123456789')"><i class="fa fa-pencil"></i></a>
                         <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-danger"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
@@ -93,13 +93,14 @@
               <div class="box-footer row">
                 <div class="col-12 col-sm-12 col-md-6">
                   <form class="form-inline mb-2" role="form">
-                    <label for="inlineFormInput">Show </label>
-                    <select class="ml-2 mr-2 form-control-sm" id="exampleSelect" name="exampleSelect">
-                      <option>10</option>
-                      <option>50</option>
-                      <option>100</option>
+                    <span class="mr-2">Show</span>
+                    <select name="itemsPerPage" class="form-control form-control-sm d-inline" style="width: 60px" [(ngModel)]="itemsPerPage"
+                      (change)="selectedPerPage()">
+                      <option *ngFor="let amountPage of arrayPerPage" [ngValue]="amountPage" [selected]="perPage == itemsPerPage">
+                        {{ amountPage }}
+                      </option>
                     </select>
-                    <label for="inlineFormInput"> items per page</label>
+                    <span class="ml-2">items per page</span>
                   </form>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6">

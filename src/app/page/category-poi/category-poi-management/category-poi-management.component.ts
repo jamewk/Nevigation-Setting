@@ -31,6 +31,24 @@ export class CategoryPoiManagementComponent implements OnInit {
   }
   ngOnInit() {
     this.createCategoryForm();
+    if (this.routeUrl.includes('view')) {
+      this.pageType = 'View';
+      this.onInitView();
+    } else if (this.routeUrl.includes('edit')) {
+      this.pageType = 'Edit';
+      this.onInitEdit();
+    } 
+  }
+  onInitView(){
+    this.categoryForm.get('categoryName')['disable']();
+    this.categoryForm.get('isPublish')['disable']();
+
+    this.categoryForm.controls['categoryName'].setValue('catgory');
+    this.categoryForm.controls['isPublish'].setValue(true);
+  }
+  onInitEdit(){
+    this.categoryForm.controls['categoryName'].setValue('catgory');
+    this.categoryForm.controls['isPublish'].setValue(true);
   }
   createCategoryForm(){
     this.categoryForm = this.formBuilder.group({
