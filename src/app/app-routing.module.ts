@@ -6,9 +6,9 @@ import { Page404Component } from './extra-pages/404/404.component';
 const AppRoutes: Routes = [
   { path: '', redirectTo: '/category-poi', pathMatch: 'full' },
   { path: 'category-poi', component: CategoryPoiListComponent },
-  { path: 'category-poi/create', component: CategoryPoiManagementComponent },
-  { path: 'category-poi/:id/view', component: CategoryPoiManagementComponent },
-  { path: 'category-poi/:id/edit', component: CategoryPoiManagementComponent },
+  // { path: 'category-poi/create', component: CategoryPoiManagementComponent },
+  // { path: 'category-poi/:id/view', component: CategoryPoiManagementComponent },
+  // { path: 'category-poi/:id/edit', component: CategoryPoiManagementComponent },
   //redirect
   { path: '404', component: Page404Component },
   { path: '**', redirectTo: '404', pathMatch: 'full' },

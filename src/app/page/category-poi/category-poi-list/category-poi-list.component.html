@@ -13,11 +13,11 @@
           </h2>
         </div>
         <div class="col-6 mt-3" >
-          <a mat-raised-button color="primary" class="btn btn-w-md pull-right" id="btnCreateNewCategoriesPOI" [routerLink]="['/category-poi/create']">
+          <!-- <a mat-raised-button color="primary" class="btn btn-w-md pull-right" id="btnCreateNewCategoriesPOI" [routerLink]="['/category-poi/create']">
             <i class="material-icons">add_circle_outline</i>
              New Categories POI
             </a>
-            <div class="divider divider-sm"></div>
+            <div class="divider divider-sm"></div> -->
         </div>
       </div>
       <div class="box box-default mdl-shadow--2dp">
@@ -57,7 +57,17 @@
           </div>
         
           <div class="box box-transparent">
-            <div class="box-header no-padding-h">Show 1 - 10 of 100 items</div>
+            <div class="no-padding-h"> 
+              <div class="row">
+                <div class="box-header col-6">Show {{ pageOffset }} - {{ pageLimit }} of {{ totalItems }} items</div>
+                <div class="col-6">
+                  <a mat-raised-button color="primary" class="pull-right"><i
+                      class="material-icons">add_circle_outline</i></a>
+                </div>
+              </div>
+             
+            </div>
+
             <div class="no-padding-h">
         
               <div class="box box-default table-box table-responsive mdl-shadow--2dp">
@@ -82,8 +92,8 @@
                       <td class="mdl-data-table__cell--non-numeric"><span class="badge badge-pill badge-success">Active</span>
                       </td>
                       <td class="mdl-data-table__cell--non-numeric">
-                        <a href="javascript:;" id="btnView" class="btn-icon btn-icon-sm mx-1 btn-primary" (click)="onNavigateByView('123456789')"><i class="fa fa-eye"></i></a>
-                        <a href="javascript:;" id="btnEdit" class="btn-icon btn-icon-sm mx-1 btn-warning" (click)="onNavigateByEdit('123456789')"><i class="fa fa-pencil"></i></a>
+                        <a href="javascript:;" id="btnView" class="btn-icon btn-icon-sm mx-1 btn-success"><i class="fa fa-save"></i></a>
+                        <a href="javascript:;" id="btnEdit" class="btn-icon btn-icon-sm mx-1 btn-warning"><i class="fa fa-pencil"></i></a>
                         <a href="javascript:;" id="btnDelete" class="btn-icon btn-icon-sm mx-1 btn-danger"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
