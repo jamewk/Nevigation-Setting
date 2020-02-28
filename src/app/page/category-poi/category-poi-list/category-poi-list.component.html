@@ -13,7 +13,11 @@
           </h2>
         </div>
         <div class="col-6 mt-3" >
-          <a mat-raised-button color="primary" class="btn btn-w-md pull-right" [routerLink]="['/category-poi/create']"><i class="material-icons">add_circle_outline</i> New Categories POI</a><div class="divider divider-sm"></div>
+          <a mat-raised-button color="primary" class="btn btn-w-md pull-right" id="btnCreateNewCategoriesPOI" [routerLink]="['/category-poi/create']">
+            <i class="material-icons">add_circle_outline</i>
+             New Categories POI
+            </a>
+            <div class="divider divider-sm"></div>
         </div>
       </div>
       <div class="box box-default mdl-shadow--2dp">
@@ -27,23 +31,23 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="exampleInputText1">Categories POI Name</label>
-                      <input type="text" class="form-control" formControlName="name" id="exampleInputText1" name="exampleInputText1">
+                      <label for="txtCategoryPOIName">Categories POI Name</label>
+                      <input type="text" class="form-control" formControlName="name" id="txtCategoryPOIName" name="txtCategoryPOIName">
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="exampleInputText2">Publish Flag</label>
-                      <angular2-multiselect class="form-control" formControlName="isPublish" id="exampleInputText2" [data]="listStatus"
-                      [settings]="addDropdownSetting(listStatus)"></angular2-multiselect>
+                      <label for="ddlPublishFlag">Publish Flag</label>
+                      <angular2-multiselect class="form-control" formControlName="isPublish" id="ddlPublishFlag" name="ddlPublishFlag" [data]="listStatus"
+                      [settings]="addDropdownSetting('Publish Flag',listStatus)"></angular2-multiselect>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12">
                     <div class="pull-right">
-                      <button mat-raised-button color="primary" class="btn-w-md mr-2" (click)="search()">Search</button>
-                      <button type="reset" mat-raised-button color="default" class="btn-w-md" (click)="clear()">Clear</button>
+                      <button mat-raised-button color="primary" class="btn-w-md mr-2" id="btnSearch" (click)="search()">Search</button>
+                      <button type="reset" mat-raised-button color="default" class="btn-w-md" id="btnClear" (click)="clear()">Clear</button>
                     </div>
                   </div>
                 </div>
@@ -60,7 +64,7 @@
                 <table class="mdl-data-table">
                   <thead>
                     <tr>
-                      <th class="mdl-data-table__cell--non-numeric">#</th>
+                      <th class="mdl-data-table__cell--non-numeric">No</th>
                       <th class="mdl-data-table__cell--non-numeric">Category POI Name</th>
                       <th class="mdl-data-table__cell--non-numeric">Last Update</th>
                       <th class="mdl-data-table__cell--non-numeric">Publish Flag</th>
@@ -78,13 +82,13 @@
                       <td class="mdl-data-table__cell--non-numeric"><span class="badge badge-pill badge-success">Active</span>
                       </td>
                       <td class="mdl-data-table__cell--non-numeric">
-                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-primary" (click)="onNavigateByView('123456789')"><i class="fa fa-eye"></i></a>
-                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-warning" (click)="onNavigateByEdit('123456789')"><i class="fa fa-pencil"></i></a>
-                        <a href="javascript:;" class="btn-icon btn-icon-sm mx-1 btn-danger"><i class="fa fa-trash"></i></a>
+                        <a href="javascript:;" id="btnView" class="btn-icon btn-icon-sm mx-1 btn-primary" (click)="onNavigateByView('123456789')"><i class="fa fa-eye"></i></a>
+                        <a href="javascript:;" id="btnEdit" class="btn-icon btn-icon-sm mx-1 btn-warning" (click)="onNavigateByEdit('123456789')"><i class="fa fa-pencil"></i></a>
+                        <a href="javascript:;" id="btnDelete" class="btn-icon btn-icon-sm mx-1 btn-danger"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
                     <tr *ngIf="categoryList.length == 0">
-                      <td class="mdl-data-table__cell--non-numeric text-center" colspan="5">No data.</td>
+                      <td class="mdl-data-table__cell--non-numeric text-center" colspan="5">No data</td>
                     </tr>
                   </tbody>
                 </table>
@@ -94,7 +98,7 @@
                 <div class="col-12 col-sm-12 col-md-6">
                   <form class="form-inline mb-2" role="form">
                     <span class="mr-2">Show</span>
-                    <select name="itemsPerPage" class="form-control form-control-sm d-inline" style="width: 60px" [(ngModel)]="itemsPerPage"
+                    <select name="itemsPerPage" id="btnShow" class="form-control form-control-sm d-inline" style="width: 60px" [(ngModel)]="itemsPerPage"
                       (change)="selectedPerPage()">
                       <option *ngFor="let amountPage of arrayPerPage" [ngValue]="amountPage" [selected]="perPage == itemsPerPage">
                         {{ amountPage }}
@@ -111,14 +115,14 @@
                           <a class="page-link" (click)="p.setCurrent(1)"><i class="fa fa-angle-double-left"></i></a>
                         </li>
                         <li class="page-item" [class.disabled]="p.isFirstPage()">
-                          <a class="page-link" (click)="p.previous()"><i class="fa fa-angle-left"></i></a>
+                          <a class="page-link" id="btnPrevious" (click)="p.previous()"><i class="fa fa-angle-left"></i></a>
                         </li>
                         <li class="page-item" *ngFor="let page of p.pages" [class.current]="p.getCurrent() === page.value"
                           [class.active]="p.getCurrent() === page.value">
-                          <a class="page-link" (click)="p.setCurrent(page.value)">{{ page.label }}</a>
+                          <a class="page-link" id="btnNumber" (click)="p.setCurrent(page.value)">{{ page.label }}</a>
                         </li>
                         <li class="page-item" [class.disabled]="p.isLastPage()">
-                          <a class="page-link" (click)="p.next()"><i class="fa fa-angle-right"></i></a>
+                          <a class="page-link" id="btnNext" (click)="p.next()"><i class="fa fa-angle-right"></i></a>
                         </li>
                         <li class="page-item" [class.disabled]="p.isLastPage()">
                           <a class="page-link" (click)="p.setCurrent(p.getLastPage())"><i class="fa fa-angle-double-right"></i></a>

@@ -69,6 +69,20 @@ export class CategoryPoiListComponent implements OnInit {
 
   }
   search(){
+    let checkSearchFilter = this.checkSerchFilter();
+    if(!checkSearchFilter.status){
+      if (checkSearchFilter.err == 'isEmpty'){
+        swal({
+          title: this.config.dialog.warning.search.title,
+          text: this.config.dialog.warning.search.text,
+          type: this.config.dialog.warning.search.type,
+          showCancelButton: this.config.dialog.warning.search.showCancelButton,
+          confirmButtonColor: this.config.dialog.warning.search.confirmButtonColor,
+          confirmButtonText: this.config.dialog.warning.search.confirmButtonText
+        })
+      }
+      return;
+    }
     this.getCategoryList();
   }
   clear(){
@@ -77,10 +91,28 @@ export class CategoryPoiListComponent implements OnInit {
     this.configPagination.currentPage = 1;
     this.getCategoryList()
   }
-  addDropdownSetting(list = []) {
+  checkSerchFilter(): any {
+    let val = this.searchForm.value;
+    let objectSearch = {
+      name: null,
+      isPublish: null,
+    }
+
+    objectSearch.name  = val.name;
+    objectSearch.isPublish  = val.isPublish;
+
+    if ((objectSearch.name === null || objectSearch.name === "") 
+    && (objectSearch.isPublish === null || objectSearch.isPublish === "")
+    ){
+      return { status: false , err: 'isEmpty' };
+    }else {
+      return { status: true };
+    }
+  }
+  addDropdownSetting(text, list = []) {
     let dropdownSettings = {
       singleSelection: true,
-      text: "Select data",
+      text: "Choose a " + text,
       showCheckbox: false,
       enableSearchFilter: list.length > 3 ? true : false,
       maxHeight: 132,

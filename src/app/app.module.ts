@@ -1,4 +1,4 @@
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule, ApplicationRef, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,7 +27,13 @@ import { CategoryPoiListComponent } from './page/category-poi/category-poi-list/
 import { CategoryPoiManagementComponent } from './page/category-poi/category-poi-management/category-poi-management.component';
 import { Page404Component } from './extra-pages/404/404.component';
 import { Page500Component } from './extra-pages/500/500.component';
+import { AppConfigService } from './app-config/app-config.service';
 
+const appInitializerFn = (appConfig: AppConfigService) => {
+  return () => {
+    return appConfig.loadAppConfig();
+  };
+};
 @NgModule({
   imports: [
     BrowserModule,
@@ -38,24 +44,27 @@ import { Page500Component } from './extra-pages/500/500.component';
     MyMaterialModule,
     AppRoutingModule,
     SharedModule,
-    OwlDateTimeModule, 
+    OwlDateTimeModule,
     OwlNativeDateTimeModule,
     AngularMultiSelectModule,
     ToastrModule.forRoot(),
     QuillModule.forRoot({
       modules: {
         toolbar: [
-          [{ 'header': [1, 2, 3, 4, 5, 6, false] },{ 'size': ['small', false, 'large', 'huge'] }],
-          ['bold', 'italic', 'underline', 'strike',{ 'align': [] }],
-          [{ 'color': [] }, { 'background': [] }],
-          [{ 'script': 'sub'}, { 'script': 'super' }, 'code-block'],
-          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-          ['image'],
+          [
+            { header: [1, 2, 3, 4, 5, 6, false] },
+            { size: ["small", false, "large", "huge"] }
+          ],
+          ["bold", "italic", "underline", "strike", { align: [] }],
+          [{ color: [] }, { background: [] }],
+          [{ script: "sub" }, { script: "super" }, "code-block"],
+          [{ list: "ordered" }, { list: "bullet" }],
+          ["image"]
         ]
       },
-      placeholder: '',
+      placeholder: ""
     }),
-    NgxPaginationModule,
+    NgxPaginationModule
   ],
   declarations: [
     AppComponent,
@@ -67,18 +76,27 @@ import { Page500Component } from './extra-pages/500/500.component';
     CategoryPoiListComponent,
     CategoryPoiManagementComponent,
     Page404Component,
-    Page500Component,
+    Page500Component
+  ],
+  providers: [AppConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializerFn,
+      multi: true,
+      deps: [AppConfigService]
+    }
   ],
   bootstrap: [AppComponent]
 })
-
 export class AppModule {
   constructor(public appRef: ApplicationRef) {}
   hmrOnInit(store) {
-    console.log('HMR store', store);
+    console.log("HMR store", store);
   }
   hmrOnDestroy(store) {
-    const cmpLocation = this.appRef.components.map((cmp) => cmp.location.nativeElement);
+    const cmpLocation = this.appRef.components.map(
+      cmp => cmp.location.nativeElement
+    );
     // recreate elements
     store.disposeOldHosts = createNewHosts(cmpLocation);
     // remove styles

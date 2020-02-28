@@ -9,6 +9,8 @@ export class AppConfigService {
 
 	// set default app config
 	private appConfig: any = {
+		"url_api" : "",
+		"url_portal" : "",
 		"status": [
 			{
 				"id": "active",
@@ -59,7 +61,7 @@ export class AppConfigService {
 			{
 				"id": "Low",
 				"itemName": "Low"
-			},
+			}
 		],
 		"role": [
 			{
@@ -177,6 +179,16 @@ export class AppConfigService {
 	}
 
 	constructor(private http: HttpClient) { }
+	loadAppConfig() {
+	  return this.http.get(environment.appConfigPath)
+		.toPromise()
+		.then(data => {
+		  this.appConfig = data;
+		})
+		.catch(err => {
+		  console.error(err.message);
+		});
+	}
 
 	getConfig() {
 		return this.appConfig;
