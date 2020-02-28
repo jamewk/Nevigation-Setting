@@ -21,8 +21,6 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { LoginComponent } from './page/example/login/login.component';
-import { ListUserComponent } from './page/user/list-user/list-user.component';
-import { ManageUserComponent } from './page/user/manage-user/manage-user.component';
 import { CategoryPoiListComponent } from './page/category-poi/category-poi-list/category-poi-list.component';
 import { CategoryPoiManagementComponent } from './page/category-poi/category-poi-management/category-poi-management.component';
 import { Page404Component } from './extra-pages/404/404.component';
@@ -71,8 +69,6 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     ExListComponent,
     ExCreateComponent,
     LoginComponent,
-    ListUserComponent,
-    ManageUserComponent,
     CategoryPoiListComponent,
     CategoryPoiManagementComponent,
     Page404Component,

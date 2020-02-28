@@ -60,7 +60,7 @@ export class CategoryPoiManagementComponent implements OnInit {
   createCategoryForm(){
     this.categoryForm = this.formBuilder.group({
       categoryName: this.formBuilder.control(null, [Validators.required]),
-      isPublish: this.formBuilder.control(true),
+      isPublish: this.formBuilder.control(false),
       subCategories: this.formBuilder.array([])
     });
 
@@ -97,7 +97,7 @@ export class CategoryPoiManagementComponent implements OnInit {
     }
     let data = {
       subCategoryName: "",
-      isPublish: true,
+      isPublish: false,
       editable: true
     };
     this.subCategoryList.push(this.createSubCategory(data));

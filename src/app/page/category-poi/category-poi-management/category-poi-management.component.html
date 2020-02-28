@@ -13,20 +13,20 @@
     <div class="col-8 mt-3">
       <div class="pull-right">
         <span *ngIf="pageType == 'View'">
-            <button  type="button" mat-raised-button color="warn" class="btn mr-2" (click)="onNavigateByEdit('123456789')"><i
+            <button  type="button" id="btnEditTop" mat-raised-button color="warn" class="btn mr-2" (click)="onNavigateByEdit('123456789')"><i
               class="material-icons">edit</i> Edit
             </button>
-            <button type="button" style="background-color: #f44336;color:#fff" mat-raised-button class="btn btn-red mr-2"><i
+            <button type="button" id="btnDeleteTop" style="background-color: #f44336;color:#fff" mat-raised-button class="btn btn-red mr-2"><i
               class="material-icons">delete_forever</i> Delete
             </button>
         </span>
         <span *ngIf="pageType == 'Create' || pageType == 'Edit'">
-           <button type="submit" mat-raised-button color="accent" class="btn mr-2" (click)="save()"><i
+           <button type="submit" id="btnSaveTop" mat-raised-button color="accent" class="btn mr-2" (click)="save()"><i
             class="material-icons">save</i> Save
           </button>
         </span>
        
-        <a matTooltip="Cancel"  [routerLink]="['/category-poi']" mat-raised-button class="btn mr-2">
+        <a [routerLink]="['/category-poi']" id="btnCancelTop" mat-raised-button class="btn mr-2">
           <i class="material-icons">cancel</i>Cancel
         </a>
         <div class="divider divider-sm"></div>
@@ -41,8 +41,8 @@
         <div class="row">
           <div class="col-md-8">
             <div class="form-group">
-              <label for="exampleInputText1">Categories POI Name<span class="text-danger" *ngIf="pageType != 'View'">*</span></label>
-              <input type="text" class="form-control" id="exampleInputText1" name="exampleInputText1" formControlName="categoryName">
+              <label for="txtCategoryPOIName">Categories POI Name<span class="text-danger" *ngIf="pageType != 'View'">*</span></label>
+              <input type="text" class="form-control" id="txtCategoryPOIName" name="txtCategoryPOIName" formControlName="categoryName">
               <span class="text-danger" *ngIf="(categoryForm.get('categoryName').errors && isSubmit)">
                 <div *ngIf="categoryForm.get('categoryName').errors.required || categoryForm.get('categoryName').pristine">
                   Field is required!
@@ -58,10 +58,10 @@
             <div class="form-group">
               <div class="row">
                 <div class="col-2 col-sm-2 col-md-1 col-lg-1 pt-1">
-                  <label for="exampleInputText1">Publish</label>
+                  <label for="Publish">Publish</label>
                 </div>
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4">
-                  <mat-slide-toggle formControlName="isPublish"></mat-slide-toggle>
+                  <mat-slide-toggle id="Publish" name="Publish" formControlName="isPublish"></mat-slide-toggle>
                 </div>
               </div>
             </div>
@@ -74,7 +74,7 @@
             <h4 class="m-0">Sub-Categories</h4>
           </div>
           <div class="col-4 col-sm-6 col-md-4 col-lg-4 mb-1 text-right">
-            <a mat-raised-button color="primary" class="pull-right" (click)="addSubCategory();" *ngIf="pageType != 'View'">
+            <a mat-raised-button color="primary" id="btnAddSub-Category" class="pull-right" (click)="addSubCategory();" *ngIf="pageType != 'View'">
               <i class="material-icons">add_circle_outline</i>
             </a>
           </div>
@@ -82,7 +82,7 @@
         <div class="row">
           <div class="col-md-8">
             <div class="box box-default table-box table-responsive mdl-shadow--2dp">
-              <table class="mdl-data-table">
+              <table class="mdl-data-table" id="Sub-Category">
                 <thead>
                   <tr>
                     <th class="mdl-data-table__cell--non-numeric border-right">No</th>
@@ -98,10 +98,10 @@
                     </td>
                     <td class="mdl-data-table__cell--non-numeric border-right">
                       <div class="mt-1" *ngIf="!getSubCategoryFormGroup(i).controls['editable'].value">
-                        {{getSubCategoryFormGroup(i).controls['subCategoryName'].value}}
+                        {{getSubCategoryFormGroup(i).controls['subCategoryName'].value? getSubCategoryFormGroup(i).controls['subCategoryName'].value: '—' }}
                       </div>
                       <div class="pr-5" *ngIf="getSubCategoryFormGroup(i).controls['editable'].value">
-                        <input type="text" class="form-control" id="subCategoryName" formControlName="subCategoryName" autocomplete="off">
+                        <input type="text" class="form-control" id="txtSub-CategoryName" name="txtSub-CategoryName" formControlName="subCategoryName" autocomplete="off">
                       </div>
                     </td>
                     <td class="mdl-data-table__cell--non-numeric text-center border-right">
@@ -115,18 +115,18 @@
                       </div>
                     </td>
                     <td class="mdl-data-table__cell--non-numeric text-center" *ngIf="pageType != 'View'">
-                      <a *ngIf="!getSubCategoryFormGroup(i).controls['editable'].value" href="javascript:;"
+                      <a id="btnEdit" *ngIf="!getSubCategoryFormGroup(i).controls['editable'].value" href="javascript:;"
                       class="btn-icon btn-icon-sm mx-1 btn-warning" (click)="editSubCategory(position,i)"><i
                         class="material-icons md-18">edit</i></a>
-                    <a *ngIf="!getSubCategoryFormGroup(i).controls['editable'].value" href="javascript:;"
-                      class="btn-icon btn-icon-sm mx-1 btn-danger" (click)="removeSubCategory(position,i)"><i
-                        class="material-icons md-18">delete_forever</i></a>
-                    <a *ngIf="getSubCategoryFormGroup(i).controls['editable'].value" href="javascript:;"
-                      class="btn-icon btn-icon-sm mx-1 btn-save" (click)="saveSubCategory(position,i)"><i
-                        class="material-icons md-18">save</i></a>
-                    <a *ngIf="getSubCategoryFormGroup(i).controls['editable'].value" href="javascript:;"
-                      class="btn-icon btn-icon-sm mx-1 btn-cancel" (click)="cancelSubCategory(position,i)"><i
-                        class="material-icons md-18">cancel</i></a>
+                      <a id="btnDelete" *ngIf="!getSubCategoryFormGroup(i).controls['editable'].value" href="javascript:;"
+                        class="btn-icon btn-icon-sm mx-1 btn-danger" (click)="removeSubCategory(position,i)"><i
+                          class="material-icons md-18">delete_forever</i></a>
+                      <a id="btnSave" *ngIf="getSubCategoryFormGroup(i).controls['editable'].value" href="javascript:;"
+                        class="btn-icon btn-icon-sm mx-1 btn-save" (click)="saveSubCategory(position,i)"><i
+                          class="material-icons md-18">save</i></a>
+                      <a id="btnCancel" *ngIf="getSubCategoryFormGroup(i).controls['editable'].value" href="javascript:;"
+                        class="btn-icon btn-icon-sm mx-1 btn-cancel" (click)="cancelSubCategory(position,i)"><i
+                          class="material-icons md-18">cancel</i></a>
                     </td>
                   </tr>
                   <tr  *ngIf="subCategoryList.value.length == 0">
@@ -146,20 +146,20 @@
     <div class="col-12 mt-3">
       <div class="pull-right">
         <span *ngIf="pageType == 'View'">
-            <button  type="button" mat-raised-button color="warn" class="btn mr-2" (click)="onNavigateByEdit('123456789')"><i
+            <button  type="button" id="btnEditBottom" mat-raised-button color="warn" class="btn mr-2" (click)="onNavigateByEdit('123456789')"><i
               class="material-icons">edit</i> Edit
             </button>
-            <button type="button" mat-raised-button style="background-color: #f44336;color:#fff" class="btn btn-danger mr-2"><i
+            <button type="button" id="btnDeleteBottom" mat-raised-button style="background-color: #f44336;color:#fff" class="btn btn-danger mr-2"><i
               class="material-icons">delete_forever</i> Delete
             </button>
         </span>
         <span *ngIf="pageType == 'Create' || pageType == 'Edit'">
-           <button type="submit" mat-raised-button color="accent" class="btn mr-2" (click)="save()"><i
+           <button type="submit" id="btnSaveBottom" mat-raised-button color="accent" class="btn mr-2" (click)="save()"><i
             class="material-icons">save</i> Save
           </button>
         </span>
        
-        <a matTooltip="Cancel"  [routerLink]="['/category-poi']" mat-raised-button class="btn mr-2">
+        <a [routerLink]="['/category-poi']" id="btnCancelBottom" mat-raised-button class="btn mr-2">
           <i class="material-icons">cancel</i>Cancel
         </a>
         <div class="divider divider-sm"></div>
