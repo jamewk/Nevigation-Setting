@@ -107,7 +107,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/cdk@^7.3.6":
+"@angular/cdk@^7.3.5":
   version "7.3.7"
   resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-7.3.7.tgz#ce1ad53ba04beb9c8e950acc5691ea0143753764"
   integrity sha512-xbXxhHHKGkVuW6K7pzPmvpJXIwpl0ykBnvA2g+/7Sgy5Pd35wCC+UtHD9RYczDM/mkygNxMQtagyCErwFnDtQA==
@@ -192,7 +192,7 @@
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-7.2.11.tgz#1967ebcef5fc03e462941aa70dc41562d5dce06e"
   integrity sha512-hq6ROxnqghmKXwJ8eIPb0wlz/PSmVTpFNQGrk3H6BFdRxPIHxvYU94mcLiV0/rMLZsSSSd4oANRUQToJR9upUA==
 
-"@angular/material@^7.3.6":
+"@angular/material@^7.3.5":
   version "7.3.7"
   resolved "https://registry.yarnpkg.com/@angular/material/-/material-7.3.7.tgz#dcd95e6618ba6254c5880efee1aad349cf5b9140"
   integrity sha512-Eq+7frkeNGkLOfEtmkmJgR+AgoWajOipXZWWfCSamNfpCcPof82DwvGOpAmgGni9FuN2XFQdqP5MoaffQzIvUA==
@@ -1082,11 +1082,6 @@ browserslist@^4.4.1:
     caniuse-lite "^1.0.30000951"
     electron-to-chromium "^1.3.116"
     node-releases "^1.1.11"
-
-bs-stepper@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/bs-stepper/-/bs-stepper-1.5.0.tgz#7ada58cee7b217524cc33672cd813b3c37295387"
-  integrity sha512-a6CVEDmA6pwayH1gzWATTYbkg3ws8MVnjZaoAjUXL5AzW2A0cxq4PVCk+YIP8wSSBNzeWtW1ruDBVNXiz1irLg==
 
 buffer-from@^1.0.0, buffer-from@^1.1.0:
   version "1.1.1"
@@ -2291,7 +2286,7 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
     assign-symbols "^1.0.0"
     is-extendable "^1.0.1"
 
-extend@^3.0.1, extend@^3.0.2, extend@~3.0.2:
+extend@^3.0.2, extend@~3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
@@ -4135,6 +4130,11 @@ ngx-filesize@^1.1.3:
   dependencies:
     filesize "^3.6.0"
 
+ngx-pagination@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/ngx-pagination/-/ngx-pagination-4.1.0.tgz#05ccd30f54351e04beeaa92cbe5c42be5fd809c2"
+  integrity sha512-qdDuOkMMNFsM4r1Jyc+uJZr1edwLoIr8Uzh+TUPE5kDT1f29ZIKt92H8+yCijDMUwHJ65mX6SAfZvbtZEwIN4w==
+
 ngx-quill@^4.6.3:
   version "4.6.13"
   resolved "https://registry.yarnpkg.com/ngx-quill/-/ngx-quill-4.6.13.tgz#d3ddb04da7a5ac57fdc27ceea2c92e1511919fb1"
@@ -5012,15 +5012,15 @@ quill-delta@^3.6.2:
     extend "^3.0.2"
     fast-diff "1.1.2"
 
-quill@^1.3.6:
-  version "1.3.6"
-  resolved "https://registry.yarnpkg.com/quill/-/quill-1.3.6.tgz#99f4de1fee85925a0d7d4163b6d8328f23317a4d"
-  integrity sha512-K0mvhimWZN6s+9OQ249CH2IEPZ9JmkFuCQeHAOQax3EZ2nDJ3wfGh59mnlQaZV2i7u8eFarx6wAtvQKgShojug==
+quill@^1.3.7:
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/quill/-/quill-1.3.7.tgz#da5b2f3a2c470e932340cdbf3668c9f21f9286e8"
+  integrity sha512-hG/DVzh/TiknWtE6QmWAF/pxoZKYxfe3J/d/+ShUWkDvvkZQVTPeVmUJVu1uE6DDooC4fWTiCLh84ul89oNz5g==
   dependencies:
     clone "^2.1.1"
     deep-equal "^1.0.1"
     eventemitter3 "^2.0.3"
-    extend "^3.0.1"
+    extend "^3.0.2"
     parchment "^1.1.4"
     quill-delta "^3.6.2"
 
